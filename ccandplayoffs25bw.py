@@ -3,6 +3,12 @@ import time
 
 #=========teams============
 
+#alabama, SEC
+bama = {"name":"Alabama","masc":"Crimson Tide",
+		"conf":"SEC","seed":0,
+		"stad":"Bryant-Denny Stadium in Tuscaloosa, AL",
+		"onum":float(40.5),"dnum":float(34.3)}
+
 #arizona state, B12
 asu = {"name":"Arizona State","masc":"Sun Devils",
 	   "conf":"B12","seed":17,
@@ -109,7 +115,7 @@ unlv = {"name":"UNLV","masc":"Rebels",
 
 #on campus games (first round of playoffs and non-p4 conf championships)(home team has defensive boost (a sort of home-field advantage))
 def oc(ht,at): 
-	#lets define our varaibles
+	#lets define our variables
 	#the good guys
 	h_team = ht.get("name")
 	h_masc = ht.get("masc")
@@ -160,7 +166,7 @@ def oc(ht,at):
 		h_range = round(h_off + a_def,0)
 		a_range = round(a_off + h_def*1.1,0)
 
-		#define probability within each range, this determines the outcome of the possession
+		#define probability within each range; this determines the outcome of the possession
 		h_prob = random.randint(1,h_range) 
 		a_prob = random.randint(1,a_range)
 		
@@ -176,7 +182,7 @@ def oc(ht,at):
 		#--gameplay--
 
 		#defines threshold for touchdown compared to field goal
-		#defense has a slight boost to reflect a sort of "home field advantage"
+		#defense has a slight boost to reflect a sort of "home field advantage."
 		afg = round((h_def*1.1) + (a_off/3),0)
 
 		if a_prob <= round((h_def*1.1),0):
@@ -933,14 +939,14 @@ elif secL == uga and b1gL == ore:
 	s6 = nd
 	s7 = uga
 
-#as previously stated, smu is a lock for the playoff even if they lose to clemson
+#as previously stated, smu is a lock for the playoff even if they lose to clemson but clemson falls out in favor of alabama
 
 if accL == smu:
 	s10 = smu
 	s11 = ind
 else:
 	s10 = ind
-	s11 = smu
+	s11 = bama
 
 print(f'{mwc["name"]}, {aac["name"]}, {b12["name"]}, {sec["name"]}, {acc["name"]}, and {b1g["name"]} are the 2024 confernce champions!')
 
